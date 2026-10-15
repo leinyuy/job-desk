@@ -1,0 +1,25 @@
+"""Run: python test_jobs.py"""
+from jobs import fits, job
+
+ok = lambda title, loc, desc="": bool(fits(job("t", title, "Co", loc, "", "u", desc)))
+
+assert ok("AI Automation Engineer", "Worldwide")
+assert ok("Senior Full-Stack Developer (React)", "Remote")
+assert ok("Forward Deployed Engineer", "")
+assert ok("Développeur Full Stack", "EMEA")
+assert ok("Frontend Engineer", "Europe, Africa")
+assert not ok("Frontend Engineer", "United States")
+assert not ok("Frontend Engineer", "South Africa")
+assert not ok("Frontend Engineer", "Remote - US")
+assert not ok("Staff Software Engineer", "Worldwide")
+assert not ok("AI Sales Representative", "Worldwide")
+assert not ok("Senior Golang Engineer", "Anywhere")
+assert not ok("AI Full Stack Engineer (Volunteer, unpaid)", "Worldwide")
+assert not ok("QA Automation Engineer (Playwright)", "Worldwide")
+assert not ok("Full Stack Developer", "Anywhere", "You must reside in the US to apply.")
+assert not ok("Full Stack Developer", "Anywhere", "Candidates must be authorized to work in the United States.")
+assert ok("Full Stack Developer", "Anywhere", "We hire contractors worldwide, US time overlap preferred.")
+assert ok("n8n gig: Need workflow for CRM sync", "")
+assert ok("Acme | Senior Frontend Engineer | REMOTE (Worldwide) | $120k", "Acme | Senior Frontend Engineer | REMOTE (Worldwide) | $120k")
+assert not ok("Acme | Senior Frontend Engineer | REMOTE (US) | $120k", "Acme | Senior Frontend Engineer | REMOTE (US) | $120k")
+print("all filter checks pass")

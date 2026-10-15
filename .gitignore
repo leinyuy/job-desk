@@ -1,0 +1,17 @@
+# Personal data: never publish
+profile.md
+cv/
+applications/
+jobs.csv
+triage.json
+desk.log
+hdr.txt
+*.pdf
+showwupp-plan.md
+
+# Not part of Job Desk
+grant-desk/
+*.zip
+
+__pycache__/
+.claude/settings.local.json
